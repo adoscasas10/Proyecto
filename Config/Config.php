@@ -29,35 +29,51 @@
 
     // }
 
-    class Conectar{
-        protected $dbh;
+   class Conectar{
+    protected $dbh;
 
-        protected function Conexion(){
-            try {
-                // --- CAMBIO 1: Credenciales de Docker ---
-                // Host: 'db' (el nombre del servicio en docker-compose)
-                // Dbname: 'bdtickets' (Asegúrate de que en docker-compose.yml pusiste este mismo nombre)
-                // Pass: 'root' (La contraseña que definimos en el yaml)
-                $conectar = $this->dbh = new PDO("mysql:host=db;dbname=bdtickets","root","root");
-                
-                return $conectar;
+    protected function Conexion(){
+        // 1. Obtener los valores de las variables de entorno de Railway
+        // Usamos valores por defecto (localhost/root) por si lo ejecutas localmente sin Railway configurado.
+        // En Railway, se usarán los valores públicos que has configurado.
 
-            } catch (Exception $e) {
-                print "¡Error BD!: " . $e->getMessage() . "<br/>";
-                die();
-            }
-        }
+        // NOTA: Para el host, también necesitas el puerto. PDO usa el formato host=dominio;port=puerto
+        $host = getenv('DB_HOST') ?: 'db'; 
+        $port = getenv('DB_PORT') ?: '3306'; 
+        $user = getenv('DB_USER') ?: 'root';
+        $password = getenv('DB_PASSWORD') ?: 'root';
+        $dbname = getenv('DB_NAME') ?: 'bdtickets';
 
-        public function set_names(){
-            // --- RECOMENDACIÓN: Descomenta esto para evitar problemas con tildes y ñ ---
-            return $this->dbh->query("SET NAMES 'utf8'");
-        }
+        try {
+            // Utilizamos el formato PDO con el puerto:
+            $conectar = $this->dbh = new PDO(
+                "mysql:host=$host;port=$port;dbname=$dbname",
+                $user,
+                $password
+            );
+            
+            // Opcional: Configurar el modo de errores para debugging
+            $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        public static function ruta(){
-            // --- CAMBIO 2: La ruta raíz ---
-            // En Docker, tu proyecto es la raíz del servidor.
-            // Ya no necesitas poner "Proyecto_PPP" en la URL.
-            return "http://localhost/"; 
+            return $conectar;
+
+        } catch (Exception $e) {
+            // En producción, es mejor registrar esto y mostrar un mensaje genérico.
+            print "¡Error de conexión a la Base de Datos!: " . $e->getMessage() . "<br/>";
+            die();
         }
     }
+
+    public function set_names(){
+        // Configura el conjunto de caracteres a UTF8 para evitar problemas con tildes y ñ
+        return $this->dbh->query("SET NAMES 'utf8'");
+    }
+
+    public static function ruta(){
+        // Usamos una variable de entorno (APP_URL) para saber la ruta raíz.
+        // Si está en Railway, esta variable tendrá el dominio público de Railway.
+        // Si no está definida (o en local), usa 'http://localhost/'
+        return getenv('APP_URL') ?: "http://localhost/"; 
+    }
+}
 ?>
