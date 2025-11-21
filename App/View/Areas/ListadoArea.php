@@ -195,6 +195,6 @@ if(isset($_SESSION["id_usuario"])){
 </html>
 <?php
 } else{
-    header("Location:".Conectar::ruta()."App/view/Login/login.php");
+    header("Location: /App/view/Login/login.php");
 }
 ?>
