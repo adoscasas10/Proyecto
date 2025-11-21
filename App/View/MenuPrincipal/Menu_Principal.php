@@ -142,7 +142,7 @@
 
 <?php
     }else{
-        header("Location:".Conectar::ruta()."App/view/Login/login.php?m=2");
+        header("Location: /App/view/Login/login.php?m=2");
     }
 ?>
 
