@@ -1,0 +1,201 @@
+/* 
+
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card_body{ 
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.searchInput {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
+    margin: 20px 0px;
+    padding: 0px 4px;
+}
+.searchInput input {
+    border: 1px solid;
+    margin-left: 8px;
+    height: 34px;
+    width: 100%;
+    padding: 0px 25px 0px 10px;
+    transition: all .6s ease;
+}
+.searchInput label {
+    color: #767676;
+    font-weight: normal;
+}
+.searchInput input:placeholder-shown {
+    width: 13%;
+}
+.searchInput:hover input:placeholder-shown {
+    width: 100%;
+    cursor: pointer;
+}
+.searchInput:after {
+    font-family: 'FontAwesome';
+    color: #d4d4d4;
+    position: relative;
+    content: "\f002";
+    right: 25px;
+}
+
+.dim_button {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 6px;
+    background: rgb(57, 85, 136);
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+} 
+.createSegment a { 
+    margin-bottom: 0px;
+    border-radius: 50px;
+    background: #ffffff;
+    border: 1px solid #007bff;
+    color: #007bff;
+    transition: all .4s ease;
+}
+.createSegment a:hover, .createSegment a:focus {
+    transition: all .4s ease;
+    background: #007bff;
+    color: #fff;
+}
+.add_flex{
+    display: flex;
+    justify-content: flex-end;
+    padding-right:0px;
+}
+
+.btn-group.open .dropdown-toggle {
+    box-shadow: none;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 40px;
+    margin: 5px 3px;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button.current, 
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    border-color: transparent !important;
+    background: #007bff !important;
+}
+.main-datatable .dataTables_paginate {
+    padding-top: 0 !important;
+    margin: 15px 10px;
+    float: right !important;
+} */
+
+
+/* Oculta tabla en móviles */
+@media (max-width: 768px) {
+  #usuario_data_wrapper, .main-datatable {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  #area_data_wrapper, .main-datatable {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  #categoria_data_wrapper, .main-datatable {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  #ticket_usuario_data_wrapper, .main-datatable {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  #ticket_asignado_data_wrapper, .main-datatable {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  #tabla_tickets_data_wrapper, .main-datatable {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  #notificaciones_data_wrapper, .main-datatable {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  #cardContainer {
+    display: block !important;
+  }
+}
+
+
+  
+  
+  /* Diseño básico de tarjeta */
+  .card-user {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .card-user h5 {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .card-user p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .card-user .btn-group {
+    margin-top: 10px;
+  }
+  
+
+  .paginador-movil {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  /* @media (min-width: 768px) {
+    #paginadorExtra {
+      display: none;
+    }
+  } */
+  

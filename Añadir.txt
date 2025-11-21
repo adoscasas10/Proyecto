@@ -1,0 +1,28 @@
+- Correo
+- Asiganción ticketrs:
+
+* Reportes
+* Principales KPI
+- Graciso CATNIDAD DE TICKETS SIN ATENDER
+
+* Sesiones activas
+
+Usuarios:
+Auditoria:
+* Historial de los cambios que se realizan.
+* Usuarios cambios etc
+
+
+
+
+
+
+
+
+
+
+/*Esto aun se vera si se agregara*/
+Calendario, las incidenciuas q se han recogido
+Dia martes 24 se han reportado, 4 ticket atendidos 
+Calendario tipo Google form.
+

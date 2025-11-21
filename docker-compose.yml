@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # --- Tu Aplicación PHP (Web) ---
+  web:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      # Esto conecta tu carpeta de Windows con la del contenedor
+      - ./:/var/www/html
+    depends_on:
+      - db
+
+  # --- Base de Datos MySQL ---
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root      # Contraseña del usuario root
+      MYSQL_DATABASE: bdtickets # Nombre de la BD inicial
+      #MYSQL_USER: root        # Un usuario extra (opcional)
+      #MYSQL_PASSWORD: root    # Contraseña del usuario extra
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # --- phpMyAdmin (Para gestionar la BD visualmente) ---
+  pma:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
