@@ -6,7 +6,7 @@
         $usuario->login();
     }
     if(isset($_SESSION["id_usuario"])){
-        header("Location: App/View/MenuPrincipal/Menu_Principal.php");
+        header("Location: /App/View/MenuPrincipal/Menu_Principal.php");
     }
 ?>
 
