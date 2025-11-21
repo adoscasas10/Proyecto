@@ -20,7 +20,7 @@
                     if (is_array($resultado) and count($resultado)>0){
                         
                         if($resultado["estado"] == 2){
-                            header("Location: /App/view/Login/login.php?m=2");
+                            header("Location: /App/View/Login/login.php?m=2");
                             exit();
                         }else{
                             $_SESSION["id_usuario"]=$resultado["id_usuario"];
@@ -38,12 +38,12 @@
                             $stmt->bindValue(1, $_SESSION["id_usuario"]);
                             $stmt->execute();
                             
-                            header("Location: /App/view/MenuPrincipal/Menu_Principal.php");
+                            header("Location: /App/View/MenuPrincipal/Menu_Principal.php");
                             exit(); 
                         }
                         
                     }else{
-                        header("Location: /App/view/Login/login.php?m=1");
+                        header("Location: /App/View/Login/login.php?m=1");
                         exit();
                     }
                 }
