@@ -8,7 +8,7 @@
                 $correo = $_POST["usu_correo"];
                 $pass = $_POST["usu_pass"];
                 if(empty($correo) and empty($pass)){
-                    header("Location:".conectar::ruta()."index.php?m=2");
+                    header("Location: /index.php?m=2");
 					exit();
                 }else{
                     $sql = "SELECT * FROM usuarios WHERE correo=? and contrasena=MD5(?) and (estado=1 or estado=2)";
@@ -20,7 +20,7 @@
                     if (is_array($resultado) and count($resultado)>0){
                         
                         if($resultado["estado"] == 2){
-                            header("Location:".Conectar::ruta()."App/view/Login/login.php?m=2");
+                            header("Location: /App/view/Login/login.php?m=2");
                             exit();
                         }else{
                             $_SESSION["id_usuario"]=$resultado["id_usuario"];
@@ -38,12 +38,12 @@
                             $stmt->bindValue(1, $_SESSION["id_usuario"]);
                             $stmt->execute();
                             
-                            header("Location:".Conectar::ruta()."App/view/MenuPrincipal/Menu_Principal.php");
+                            header("Location: /App/view/MenuPrincipal/Menu_Principal.php");
                             exit(); 
                         }
                         
                     }else{
-                        header("Location:".Conectar::ruta()."App/view/Login/login.php?m=1");
+                        header("Location: /App/view/Login/login.php?m=1");
                         exit();
                     }
                 }
