@@ -6,7 +6,7 @@
         $usuario->login();
     }
     if(isset($_SESSION["id_usuario"])){
-        header("Location:".Conectar::ruta()."/App/View/MenuPrincipal/Menu_Principal.php");
+        header("Location:".Conectar::ruta()."App/View/MenuPrincipal/Menu_Principal.php");
     }
 ?>
 
